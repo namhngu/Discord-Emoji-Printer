@@ -13,10 +13,10 @@ import uuid
 import os
 
 # Token of the discord bot
-TOKEN = ''
+TOKEN = 'OTkzNjU1ODc2MDUxMjcxNzAw.Ggd4Ly._zOKj5I8vtwag-80WVEpOhKE3ufZ74X04Uss2g'
 
 # Discord Group ID
-guildID = 0
+guildID = 807759163715092551
 
 # Map correlating the discord group's custom discord emojis to their avg RGB value
 emoMap = {}
@@ -72,7 +72,6 @@ async def on_ready():
         except Image.UnidentifiedImageError:
             os.remove(emoji.name + '.png')
             pass
-    print(emoMap)
 
 
 # Post:
@@ -136,7 +135,6 @@ class Pic:
         height = img.height
         width = img.width
         img_matrix = np.array(img)
-        print(img_matrix)
         for i in np.arange(0, height - math.floor(width/length), math.floor(width/length)):
             text_pic = ""
             for j in np.arange(0, width - math.floor(width/length), math.floor(width/length)):
@@ -152,14 +150,14 @@ class Pic:
 #   Entering the command ::printPic 5 along with an uploaded photo in the thread which
 #   the bot can see will result in the bot printing pic with just emojis.
 @client.command()
-async def printPic(ctx, width):
+async def printPic(ctx, width:int):
     try:
         url = ctx.message.attachments[0].url
     except IndexError:
         print("Error: No attachments")
         await ctx.send("No attachments detected BITCH!")
     else:
-        if url[0:26] == "https:#cdn.discordapp.com":
+        if url[0:26] == "https://cdn.discordapp.com":
             r = requests.get(url, stream=True)
             imageName = str(uuid.uuid4()) + '.jpg'
             with open(imageName, 'wb') as out_file:
