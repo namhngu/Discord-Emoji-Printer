@@ -13,10 +13,10 @@ import uuid
 import os
 
 # Token of the discord bot
-TOKEN = 'OTkzNjU1ODc2MDUxMjcxNzAw.Ggd4Ly._zOKj5I8vtwag-80WVEpOhKE3ufZ74X04Uss2g'
+TOKEN = ''
 
 # Discord Group ID
-guildID = 807759163715092551
+guildID = 0
 
 # Map correlating the discord group's custom discord emojis to their avg RGB value
 emoMap = {}
