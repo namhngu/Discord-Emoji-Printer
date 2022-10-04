@@ -155,7 +155,7 @@ async def printPic(ctx, width:int):
         url = ctx.message.attachments[0].url
     except IndexError:
         print("Error: No attachments")
-        await ctx.send("No attachments detected BITCH!")
+        await ctx.send("No attachments detected!")
     else:
         if url[0:26] == "https://cdn.discordapp.com":
             r = requests.get(url, stream=True)
